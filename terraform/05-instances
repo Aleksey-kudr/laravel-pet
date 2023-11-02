@@ -1,0 +1,89 @@
+# ----------------web-01-------------------
+/*
+resource "yandex_compute_instance" "web01" {
+  name = "web01"
+  hostname = "web01"
+  zone = var.zone
+  allow_stopping_for_update = true
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = var.image-id
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-terraform.id
+    ip_address = "192.168.1.10"
+    nat = true
+  }
+
+  metadata = {
+    user-data = file("user-data.yaml")
+  }
+}
+/*
+# ----------------db01-------------------
+resource "yandex_compute_instance" "db01" {
+  name = "db01"
+  hostname = "db01"
+  zone = var.zone
+  allow_stopping_for_update = true
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = var.image-id
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-terraform.id
+    ip_address = "192.168.1.20"
+    nat = true
+  }
+
+  metadata = {
+    user-data = file("user-data.yaml")
+  }
+}
+
+
+# ----------------mon01-------------------
+resource "yandex_compute_instance" "mon01" {
+  name = "mon01"
+  hostname = "mon01"
+  zone = var.zone
+  allow_stopping_for_update = true
+
+  resources {
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = var.image-id
+    }
+  }
+
+  network_interface {
+    subnet_id = yandex_vpc_subnet.subnet-terraform.id
+    ip_address = "192.168.1.30"
+    nat = true
+  }
+
+  metadata = {
+    user-data = file("user-data.yaml")
+  }
+}
+*/
